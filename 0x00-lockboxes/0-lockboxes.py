@@ -11,6 +11,7 @@ def search(boxes):
                 if key not in keys:
                     keys.add(key)
 
+
 def canUnlockAll(boxes):
     """Method that determines if all the boxes can be opened"""
     global keys
