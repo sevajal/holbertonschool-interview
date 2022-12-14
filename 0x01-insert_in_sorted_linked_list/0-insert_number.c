@@ -35,10 +35,15 @@ listint_t *insert_node(listint_t **head, int number)
 			current->next = new;
 			new->next = NULL;
 		}
+		else if (current->next->n == number)
+		{
+			free(new);
+			return (current);
+		}
 		else
 		{
 			new->next = current->next;
-		current->next = new;
+			current->next = new;
 		}
 	}
 	return (new);
