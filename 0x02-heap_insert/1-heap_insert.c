@@ -33,31 +33,33 @@ void find_parent(heap_t **root, int i)
 }
 
 /**
- * @swap - swap nodes.
+ * swap - swap nodes.
  * @a: a node.
  * @b: b node.
  */
 void swap(int *a, int *b)
 {
-  int temp = *b;
-  *b = *a;
-  *a = temp;
+	int temp = *b;
+	*b = *a;
+	*a = temp;
 }
 
 
 /**
  * insert_to - insert a new node to the given parent.
- * @root: the root node.
  * @parent: the parent node.
  * @node: the node to insert into the binary tree-
  */
-void insert_to(heap_t **head, heap_t *parent, heap_t *node)
+void insert_to(heap_t *parent, heap_t *node)
 {
 	if (!parent || node->n < parent->n)
 		return;
 
 	swap(&parent->n, &node->n);
-	insert_to(head, node->parent, node);
+	insert_to(node->parent, node);
+
+	if (parent->parent && parent->parent->n < node->parent->n)
+		swap(&parent->parent->n, &node->parent->n);
 }
 
 /**
@@ -94,6 +96,6 @@ heap_t *heap_insert(heap_t **root, int value)
 		parent->left = new_node;
 	else
 		parent->right = new_node;
-	insert_to(root, parent, new_node);
+	insert_to(parent, new_node);
 	return (new_node);
 }
