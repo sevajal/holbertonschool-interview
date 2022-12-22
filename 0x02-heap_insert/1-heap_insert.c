@@ -58,7 +58,7 @@ void insert_to(heap_t *parent, heap_t *node)
 	swap(&parent->n, &node->n);
 	insert_to(node->parent, node);
 
-	if (parent->parent && parent->parent->n < node->parent->n)
+	while (parent->parent && parent->parent->n < node->parent->n)
 		swap(&parent->parent->n, &node->parent->n);
 }
 
