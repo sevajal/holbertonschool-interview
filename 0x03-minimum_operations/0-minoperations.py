@@ -28,10 +28,8 @@ def minOperations(n):
     count = 0
     myData = [count, string, chars]
 
-    if n < 1:
+    if n <= 1:
         return (0)
-    if n == 1:
-        return (1)
     myData = copyAll(myData)
     myData = paste(myData)
     while len(myData[1]) < n:
