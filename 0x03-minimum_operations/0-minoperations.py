@@ -28,6 +28,8 @@ def minOperations(n):
     count = 0
     myData = [count, string, chars]
 
+    if type(n) is not int:
+        return (0)
     if n <= 1:
         return (0)
     while len(myData[1]) < n:
