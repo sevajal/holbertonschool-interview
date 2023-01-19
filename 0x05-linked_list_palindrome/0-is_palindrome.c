@@ -4,6 +4,25 @@
 
 
 /**
+ * listint_len - returns the number of elements in a linked listint_t list.
+ * @h: Pointer to the listint_t head.
+ * Return: the number of elements in a linked listint_t list.
+ */
+
+size_t listint_len(const listint_t *h)
+{
+	int nodes = 0;
+
+	while (h != NULL)
+	{
+		h = h->next;
+		nodes++;
+	}
+	return (nodes);
+}
+
+
+/**
  * is_palindrome - checks if a singly linked list is a palindrome.
  * @head: Double pointer to the head of the linked list.
  * An empty list is considered a palindrome.
@@ -21,10 +40,8 @@ int is_palindrome(listint_t **head)
 	{
 		numbers[i] = tmp->n;
 		tmp = tmp->next;
-		/*printf("number[%d]=%d\n", i, numbers[i]);*/
 		i++;
 	}
-	/*printf("%i", length);*/
 
 	x = length - 1;
 	i = 0;
