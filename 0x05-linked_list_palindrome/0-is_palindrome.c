@@ -30,9 +30,11 @@ int listint_len(const listint_t *h)
 int is_palindrome(listint_t **head)
 {
 	int length = listint_len(*head);
-	int numbers[length];
+	int *numbers;
 	int x, i = 0;
 	listint_t *tmp = *head;
+
+	numbers = malloc(sizeof(int) * length);
 
 	while (tmp != NULL)
 	{
@@ -50,6 +52,10 @@ int is_palindrome(listint_t **head)
 			x--;
 		}
 		else
+		{
+			free(numbers);
 			return (0);
+		}
+	free(numbers);
 	return (1);
 }
