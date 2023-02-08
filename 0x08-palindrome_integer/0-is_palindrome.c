@@ -17,11 +17,9 @@ int is_palindrome(unsigned long n)
 	j = len - 1;
 	for (i = 0; i < j; i++)
 	{
-		for (; j > i; j--)
-		{
-			if (str[i] != str[j])
-				return (0);
-		}
+		if (str[i] != str[j])
+			return (0);
+		j--;
 	}
 	return (1);
 }
