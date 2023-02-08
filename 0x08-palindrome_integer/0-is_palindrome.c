@@ -15,7 +15,7 @@ int is_palindrome(unsigned long n)
 	sprintf(str, "%ld", n);
 	len = strlen(str);
 	j = len - 1;
-	for (i = 0; i < j; i++)
+	for (i = 0; i < (len / 2); i++)
 	{
 		if (str[i] != str[j])
 			return (0);
