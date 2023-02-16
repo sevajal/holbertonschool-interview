@@ -2,8 +2,8 @@
 def validUTF8(data):
     """ Validates if the data is UTF-8"""
     n_bytes = 0
-    for num in data:
-        bin_rep = format(num, '#010b')[-8:]
+    for number in data:
+        bin_rep = format(number, '#010b')[-8:]
         if n_bytes == 0:
             for bit in bin_rep:
                 if bit == '0':
