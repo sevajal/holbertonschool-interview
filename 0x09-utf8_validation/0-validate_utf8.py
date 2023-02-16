@@ -20,4 +20,4 @@ def validUTF8(data):
             if not (bin_rep[0] == '1' and bin_rep[1] == '0'):
                 return False
         n_bytes -= 1
-    return True
+    return n_bytes == 0
